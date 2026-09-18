@@ -191,6 +191,23 @@ INDEX_HTML = """
 <body class="p-6">
     <div id="app" class="max-w-6xl mx-auto flex gap-6 relative">
         
+        <!-- WELCOME / INTRO DIALOG -->
+        <div v-if="showIntro" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100000] p-4">
+            <div class="bg-white rounded-2xl shadow-2xl p-6 max-w-lg w-full text-center border border-gray-200">
+                <h2 class="text-2xl font-black text-gray-900 mb-3">Welcome, Adventurer!</h2>
+                <p class="text-gray-700 leading-relaxed text-sm text-left mb-6 bg-gray-50 p-4 rounded-xl border border-gray-200">
+                    You are a <strong>13th level Human Wizard</strong> with some downtime and a <strong>Deck of Many Things</strong> (technically the 66 card "Deck of Many More Things" but you can also select the 13 or 22 card Deck of Many Things variants when you start a new run).
+                    <br/><br/>
+                    As a 5.5e Human you gain <strong>Heroic Inspiration</strong> every long rest, and this allows you to <strong>manipulate any dice roll by clicking on the result.</strong>
+                    <br/><br/>
+                    How strong can you become?
+                </p>
+                <button @click="showIntro = false" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl shadow transition">
+                    🧙 Draw some cards! 🃏
+                </button>
+            </div>
+        </div>
+
         <!-- GLOBAL FLOATING TOOLTIP -->
         <div v-if="hoverTooltip.show" 
              :style="{ top: hoverTooltip.y + 'px', left: hoverTooltip.x + 'px' }" 
@@ -430,6 +447,7 @@ INDEX_HTML = """
         createApp({
             data() {
                 return {
+                    showIntro: true,
                     s: { history_log: [], buffs: {}, curses: {}, allies: {}, enemies: {}, loot: {}, pending_transfers: [], secondary_rolls: [], modal_phase: 'idle', age: 25, height_inches: 68 },
                     deckData: [], deckSize: "66", purifyTarget: "", c1: "", c2: "",
                     isAnimTens: false, isAnimUnits: false, isAnimSec: false, animSecTarget: null,
@@ -642,23 +660,23 @@ INDEX_HTML = """
                     }, 500);
                 },
                 async drawCard() {
-                    this.runAnim('d100', true, true);  // 1. Starts spinning immediately (0ms latency feel)
-                    await this.api('draw');            // 2. Resolves in background while dice are spinning
+                    this.runAnim('d100', true, true);
+                    await this.api('draw');
                 },
                 async clickDie(die) {
                     if(this.s.modal_phase !== 'd100_wait' || !this.s.has_heroic_inspiration || this.isAnimating) return;
                     clearInterval(this.timerInt);
-                    this.runAnim('d100', die === 'tens', die === 'units'); // 1. Instant spin
-                    await this.api('reroll_d100', {die});                  // 2. Background resolution
+                    this.runAnim('d100', die === 'tens', die === 'units');
+                    await this.api('reroll_d100', {die});
                 },
                 async clickSecDie(idx) {
                     if(this.s.modal_phase !== 'revealed' || !this.s.has_heroic_inspiration || this.isAnimating) return;
                     clearInterval(this.timerInt);
-                    this.runAnim('sec', idx);                              // 1. Instant spin
-                    await this.api('reroll_sec', {idx});                   // 2. Background resolution
+                    this.runAnim('sec', idx);
+                    await this.api('reroll_sec', {idx});
                 },
                 async clickTowerDie(cIdx, die) {
-                    if(this.s.modal_phase !== 'tower_wait' || !this.s.has_heroic_inspiration || this.isAnimating) return;
+                    if(this.s.modal_phase !== 'tower_wait' || !this.has_heroic_inspiration || this.isAnimating) return;
                     clearInterval(this.timerInt);
                     await this.api('reroll_tower', {card_idx: cIdx, die});
                     this.runAnim('tower', cIdx===0&&die==='tens', cIdx===0&&die==='units', cIdx===1&&die==='tens', cIdx===1&&die==='units');
