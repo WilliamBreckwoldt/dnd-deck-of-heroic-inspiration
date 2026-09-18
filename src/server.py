@@ -278,7 +278,7 @@ INDEX_HTML = """
                         <option value="13">13</option><option value="22">22</option><option value="66">66</option>
                     </select>
                 </div>
-                <button @click="api('new_game', {size: parseInt(deckSize)})" class="bg-gray-200 px-4 py-2 rounded font-bold hover:bg-gray-300">🔄 New Game</button>
+                <button @click="startNewGame" class="bg-gray-200 px-4 py-2 rounded font-bold hover:bg-gray-300">🔄 New Game</button>
             </div>
 
             <!-- Fatal Game Over Alert with Fates Safeguard -->
@@ -338,37 +338,51 @@ INDEX_HTML = """
                 <h2 class="text-2xl font-bold mb-4 text-gray-400" v-else>Rolling...</h2>
 
                 <!-- TOWER ROLLS (4 DICE) -->
-                <div v-if="s.modal_phase.startsWith('tower')" class="flex gap-8 justify-center mb-6">
-                    <div v-for="(roll, idx) in [0, 1]" class="flex flex-col items-center">
-                        <div class="flex gap-2 mb-4">
-                            <div class="dice-box" :class="{'locked': !isAnimTower[idx].tens && s.modal_phase !== 'tower_wait', 'interactive': s.modal_phase === 'tower_wait' && s.has_heroic_inspiration}" @click="clickTowerDie(idx, 'tens')">
-                                {{ isAnimTower[idx].tens ? String(animTower[idx].tens).padStart(2,'0') : (s.tower_rolls[idx] ? String(s.tower_rolls[idx].tens*10).padStart(2,'0') : '00') }}
+                <div v-if="s.modal_phase.startsWith('tower')" class="flex flex-col items-center mb-6">
+                    <div class="flex gap-8 justify-center">
+                        <div v-for="(roll, idx) in [0, 1]" class="flex flex-col items-center">
+                            <div class="flex gap-2 mb-4">
+                                <div class="dice-box" :class="{'locked': !isAnimTower[idx].tens && s.modal_phase !== 'tower_wait', 'interactive': s.modal_phase === 'tower_wait' && s.has_heroic_inspiration}" @click="clickTowerDie(idx, 'tens')">
+                                    {{ isAnimTower[idx].tens ? String(animTower[idx].tens).padStart(2,'0') : (s.tower_rolls[idx] ? String(s.tower_rolls[idx].tens*10).padStart(2,'0') : '00') }}
+                                </div>
+                                <div class="dice-box" :class="{'locked': !isAnimTower[idx].units && s.modal_phase !== 'tower_wait', 'interactive': s.modal_phase === 'tower_wait' && s.has_heroic_inspiration}" @click="clickTowerDie(idx, 'units')">
+                                    {{ isAnimTower[idx].units ? animTower[idx].units : (s.tower_rolls[idx] ? s.tower_rolls[idx].units : '0') }}
+                                </div>
                             </div>
-                            <div class="dice-box" :class="{'locked': !isAnimTower[idx].units && s.modal_phase !== 'tower_wait', 'interactive': s.modal_phase === 'tower_wait' && s.has_heroic_inspiration}" @click="clickTowerDie(idx, 'units')">
-                                {{ isAnimTower[idx].units ? animTower[idx].units : (s.tower_rolls[idx] ? s.tower_rolls[idx].units : '0') }}
+                            <div class="card-box" :class="{'interactive': s.modal_phase === 'tower_wait' && !isAnimating}" @click="clickCard">
+                                <div style="font-size: 55px;">{{ (isAnimTower[idx].tens || isAnimTower[idx].units) ? animTower[idx].emoji : (s.tower_cards[idx] ? s.tower_cards[idx].emoji : '❓') }}</div>
+                                <div class="font-bold mt-2 leading-tight">{{ (isAnimTower[idx].tens || isAnimTower[idx].units) ? animTower[idx].name : (s.tower_cards[idx] ? s.tower_cards[idx].name : '...') }}</div>
                             </div>
+                            <button v-if="s.modal_phase === 'tower_choices'" @click="api('choice_tower', {idx: idx})" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded font-bold hover:bg-blue-700">Keep Card {{idx+1}}</button>
                         </div>
-                        <div class="card-box" :class="{'interactive': s.modal_phase === 'tower_wait' && !isAnimating}" @click="clickCard">
-                            <div style="font-size: 55px;">{{ (isAnimTower[idx].tens || isAnimTower[idx].units) ? animTower[idx].emoji : (s.tower_cards[idx] ? s.tower_cards[idx].emoji : '❓') }}</div>
-                            <div class="font-bold mt-2 leading-tight">{{ (isAnimTower[idx].tens || isAnimTower[idx].units) ? animTower[idx].name : (s.tower_cards[idx] ? s.tower_cards[idx].name : '...') }}</div>
-                        </div>
-                        <button v-if="s.modal_phase === 'tower_choices'" @click="api('choice_tower', {idx: idx})" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded font-bold hover:bg-blue-700">Keep Card {{idx+1}}</button>
+                    </div>
+                    <!-- Tower click hint (Shows on first draw of the run) -->
+                    <div v-if="s.modal_phase === 'tower_wait' && !hasShownCardHint" class="mt-4 text-sm font-bold text-blue-700 leading-snug bg-blue-50 px-5 py-2.5 rounded-xl border border-blue-200 shadow-sm animate-pulse">
+                        Click the card to reveal immediately! 👆<br/>
+                        <span class="text-xs text-blue-500 font-normal">(or click one of the dice to re-roll it)</span>
                     </div>
                 </div>
 
                 <!-- STANDARD D100 -->
-                <div v-if="!s.modal_phase.startsWith('tower')" class="flex gap-8 justify-center items-center mb-6">
-                    <div class="flex gap-2">
-                        <div class="dice-box" :class="{'locked': !isAnimTens && s.modal_phase !== 'd100_wait', 'interactive': s.modal_phase === 'd100_wait' && s.has_heroic_inspiration}" @click="clickDie('tens')">
-                            {{ isAnimTens ? String(animD100.tens).padStart(2,'0') : (s.current_roll ? String(s.current_roll.tens*10).padStart(2,'0') : '00') }}
+                <div v-if="!s.modal_phase.startsWith('tower')" class="flex flex-col items-center mb-6">
+                    <div class="flex gap-8 justify-center items-center">
+                        <div class="flex gap-2">
+                            <div class="dice-box" :class="{'locked': !isAnimTens && s.modal_phase !== 'd100_wait', 'interactive': s.modal_phase === 'd100_wait' && s.has_heroic_inspiration}" @click="clickDie('tens')">
+                                {{ isAnimTens ? String(animD100.tens).padStart(2,'0') : (s.current_roll ? String(s.current_roll.tens*10).padStart(2,'0') : '00') }}
+                            </div>
+                            <div class="dice-box" :class="{'locked': !isAnimUnits && s.modal_phase !== 'd100_wait', 'interactive': s.modal_phase === 'd100_wait' && s.has_heroic_inspiration}" @click="clickDie('units')">
+                                {{ isAnimUnits ? animD100.units : (s.current_roll ? s.current_roll.units : '0') }}
+                            </div>
                         </div>
-                        <div class="dice-box" :class="{'locked': !isAnimUnits && s.modal_phase !== 'd100_wait', 'interactive': s.modal_phase === 'd100_wait' && s.has_heroic_inspiration}" @click="clickDie('units')">
-                            {{ isAnimUnits ? animD100.units : (s.current_roll ? s.current_roll.units : '0') }}
+                        <div class="card-box" :class="{'interactive': s.modal_phase === 'd100_wait' && !isAnimating}" @click="clickCard">
+                            <div style="font-size: 55px;">{{ (isAnimTens || isAnimUnits) ? animD100.emoji : (s.pending_card ? s.pending_card.emoji : '❓') }}</div>
+                            <div class="font-bold mt-2 leading-tight">{{ (isAnimTens || isAnimUnits) ? animD100.name : (s.pending_card ? s.pending_card.name : '...') }}</div>
                         </div>
                     </div>
-                    <div class="card-box" :class="{'interactive': s.modal_phase === 'd100_wait' && !isAnimating}" @click="clickCard">
-                        <div style="font-size: 55px;">{{ (isAnimTens || isAnimUnits) ? animD100.emoji : (s.pending_card ? s.pending_card.emoji : '❓') }}</div>
-                        <div class="font-bold mt-2 leading-tight">{{ (isAnimTens || isAnimUnits) ? animD100.name : (s.pending_card ? s.pending_card.name : '...') }}</div>
+                    <!-- Standard card click hint (Shows on first draw of the run) -->
+                    <div v-if="s.modal_phase === 'd100_wait' && !hasShownCardHint" class="mt-4 text-sm font-bold text-blue-700 leading-snug bg-blue-50 px-5 py-2.5 rounded-xl border border-blue-200 shadow-sm animate-pulse">
+                        Click the card to reveal immediately! 👆<br/>
+                        <span class="text-xs text-blue-500 font-normal">(or click one of the dice to re-roll it)</span>
                     </div>
                 </div>
 
@@ -448,6 +462,7 @@ INDEX_HTML = """
             data() {
                 return {
                     showIntro: true,
+                    hasShownCardHint: false,
                     s: { history_log: [], buffs: {}, curses: {}, allies: {}, enemies: {}, loot: {}, pending_transfers: [], secondary_rolls: [], modal_phase: 'idle', age: 25, height_inches: 68 },
                     deckData: [], deckSize: "66", purifyTarget: "", c1: "", c2: "",
                     isAnimTens: false, isAnimUnits: false, isAnimSec: false, animSecTarget: null,
@@ -516,6 +531,13 @@ INDEX_HTML = """
                         localStorage.setItem('dnd_deck_session_id', sid);
                     }
                     return sid;
+                },
+                startNewGame() {
+                    this.hasShownCardHint = false;
+                    this.api('new_game', {size: parseInt(this.deckSize)});
+                },
+                markHintShown() {
+                    this.hasShownCardHint = true;
                 },
                 showTip(e, text) {
                     if (!text) return;
@@ -593,6 +615,7 @@ INDEX_HTML = """
                     }, 1000);
                 },
                 async revealNow() {
+                    this.markHintShown();
                     clearInterval(this.timerInt);
                     if(this.s.modal_phase === 'd100_wait') {
                         await this.api('reveal_d100');
@@ -665,6 +688,7 @@ INDEX_HTML = """
                 },
                 async clickDie(die) {
                     if(this.s.modal_phase !== 'd100_wait' || !this.s.has_heroic_inspiration || this.isAnimating) return;
+                    this.markHintShown();
                     clearInterval(this.timerInt);
                     this.runAnim('d100', die === 'tens', die === 'units');
                     await this.api('reroll_d100', {die});
@@ -677,6 +701,7 @@ INDEX_HTML = """
                 },
                 async clickTowerDie(cIdx, die) {
                     if(this.s.modal_phase !== 'tower_wait' || !this.has_heroic_inspiration || this.isAnimating) return;
+                    this.markHintShown();
                     clearInterval(this.timerInt);
                     await this.api('reroll_tower', {card_idx: cIdx, die});
                     this.runAnim('tower', cIdx===0&&die==='tens', cIdx===0&&die==='units', cIdx===1&&die==='tens', cIdx===1&&die==='units');
