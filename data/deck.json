@@ -1,0 +1,1272 @@
+[
+  {
+    "name": "Aberration",
+    "description": "You gain telepathy within a range of 90 feet.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 1, "max": 1 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Under D&D rules for duplicate features with the same name, gaining telepathy within 90 feet a second time is redundant and does not increase range.",
+    "mitigation_notes": "Beneficial effect; no mitigation needed. If telepathic communication is undesired, you can simply choose not to transmit your thoughts.",
+    "emoji": "🐙",
+    "result_text": "Time for a mind-meld.",
+    "short_description": "You gain telepathy within a range of 90 feet.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Balance",
+    "description": "You can increase one of your ability scores by 2, to a maximum of 22, provided you also decrease another one of your ability scores by 2. You can't decrease an ability that has a score of 5 or lower. Alternatively, you can choose not to adjust your ability scores, in which case this card has no effect.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": { "min": 1, "max": 5 },
+      "66_card_deck": { "min": 2, "max": 2 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Ability score adjustments can stack cumulatively across draws until reaching the maximum score cap of 22 or the minimum floor of 5. You can choose different ability scores on successive draws.",
+    "mitigation_notes": "The card offers an explicit opt-out: you may choose not to adjust your ability scores, preventing any negative outcome. If taken, reduce a non-essential dump stat.",
+    "emoji": "⚖️",
+    "result_text": "You change but stay balanced.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Beast",
+    "description": "You immediately transform into a random Beast with a CR of 5 or lower. Your game statistics—including your ability scores, hit points, and possible actions—are replaced by the Beast's game statistics, and any nonmagical equipment you're wearing or carrying melds into your new form and can't be used. Any magic items you're carrying drop in an unoccupied space within 5 feet of your new form.\n\nYou remain transformed in this way for 2d12 days; nothing can alter your form while you're under the effects of this card, but the Wish spell can end the transformation early. When you revert to your normal form, you return to the same state you were in when you initially transformed.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 3, "max": 3 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "The card explicitly specifies that 'nothing can alter your form while you're under the effects of this card', preventing another transformation effect from taking hold.",
+    "mitigation_notes": "Only the Wish spell can end the transformation before 2d12 days expire. Allies should immediately collect dropped magic items and safeguard the beast form.",
+    "emoji": "🫎",
+    "result_text": "You become a moose and you party looks after you for a while.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Book",
+    "description": "You gain the ability to speak, read, and write 1d6 + 2 languages of your choice.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 4, "max": 4 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw grants an additional 1d6 + 2 languages of your choice, expanding your repertoire until all known languages are learned.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "📖",
+    "result_text": "Nie dzieje się nic ciekawego.",
+    "short_description": "You have learned additional languages.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Bridge",
+    "description": "You gain the ability to cast the Time Stop spell 1d3 times. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 5, "max": 5 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw grants an additional 1d3 castings/charges of Time Stop that can be held and expended independently.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "🌉",
+    "result_text": "This might come in handy.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Campfire",
+    "description": "You immediately gain the benefits of finishing a long rest.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 6, "max": 6 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "The effect is instantaneous; drawing it multiple times instantly refreshes HP, hit dice, spell slots, and abilities repeatedly.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "🏕️",
+    "result_text": "You feel refreshed.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Cavern",
+    "description": "You gain a climbing speed equal to your walking speed. You also gain the ability to move up, down, across vertical surfaces, and along ceilings, while leaving your hands free.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 7, "max": 7 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Under D&D rules for combining identical game features, gaining the same climbing and surface movement speed again provides no additional benefit. However, if your speed has increased since last time you gain that as your climbing speed.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "🦇",
+    "result_text": "You feel like spiderman.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Celestial",
+    "description": "You sprout a pair of softly luminescent, feathered wings from your back and gain a flying speed of 30 feet.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 8, "max": 8 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Identical passive flying speeds and physical traits of the same name do not stack to increase flight speed.",
+    "mitigation_notes": "Beneficial effect. If wings obstruct armor or stealth due to luminescence, tailor custom armor or use illusion magic (such as Disguise Self).",
+    "emoji": "🪽",
+    "result_text": "Did you drink a Red Bull?",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Comet",
+    "description": "The next time you enter combat against one or more Hostile creatures, you can select one of them as your foe when you roll Initiative. If you reduce your foe to 0 Hit Points during that combat, you have Advantage on Death Saving Throws for 1 year. If someone else reduces your chosen foe to 0 Hit Points or you don't choose a foe, this card has no effect.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": { "min": 6, "max": 10 },
+      "66_card_deck": { "min": 9, "max": 9 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "In D&D 5e, Advantage does not stack with itself, and duplicate named effects overlapping in duration do not multiply benefits.",
+    "mitigation_notes": "Coordinate with allies to reserve the killing blow for you when targeting the chosen foe. Failing the condition carries no negative consequence.",
+    "emoji": "☄️",
+    "result_text": "This might come in handy.",
+    "short_description": "The next time you enter combat against one or more Hostile creatures, you can select one of them as your foe when you roll Initiative. If you reduce your foe to 0 Hit Points during that combat, you have Advantage on Death Saving Throws for 1 year. If someone else reduces your chosen foe to 0 Hit Points or you don't choose a foe, this card has no effect.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Construct",
+    "description": "A homunculus appears in an unoccupied space within 5 feet of you. The appearance of the homunculus is determined by the DM, and the homunculus treats you as its creator.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 10, "max": 10 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw creates an independent, distinct homunculus entity loyal to you.",
+    "mitigation_notes": "Protect the homunculus from area-of-effect spells, as its hit point maximum is very low.",
+    "emoji": "🤖",
+    "result_text": "This might come in handy.",
+    "short_description": "A homunculus.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Corpse",
+    "description": "You immediately drop to 0 hit points, have the unconscious condition, and must begin making death saving throws. Spells and other magical effects that restore hit points have no effect on you until you are stabilized. If you fail three death saving throws, you die and can be resurrected only by the Wish spell.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 11, "max": 11 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Instantaneous condition: you are unconscious and incapacitated at 0 HP, preventing further card drawing while the effect is active.",
+    "mitigation_notes": "Magical healing fails initially, but nonmagical stabilization succeeds: an ally can instantly stabilize you using a Healer's Kit or a DC 10 Wisdom (Medicine) check. Once stabilized, magical healing functions normally. Alternatively, use a Periapt of Wound Closure!",
+    "emoji": "🧟",
+    "result_text": "You fall unconscious, and awake the next morning.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Crossroads",
+    "description": "Roll a d20. If the roll is even, you age 1d10 years. If the roll is odd, you become younger by 1d10 years, to a minimum of 1 year. This effect can be undone only by the Wish spell, divine intervention, or similar magic.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 12, "max": 12 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Age alterations are instantaneous modifications that accumulate cumulatively with each draw.",
+    "mitigation_notes": "Can be undone using the Wish spell, divine intervention, or similar powerful magic. Abilities like the Monk or Druid's Timeless Body prevent aging frailty.",
+    "emoji": "⏳",
+    "result_text": "You look different- did you get a haircut?",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Donjon",
+    "description": "You disappear and become entombed in a state of suspended animation in an extradimensional sphere. Everything you're wearing and carrying disappears with you except for Artifacts, which stay behind in the space you occupied when you disappeared. You remain imprisoned until you are found and removed from the sphere. You can't be located by any Divination magic, but a Wish spell can reveal the location of your prison. You draw no more cards.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": { "min": 11, "max": 14 },
+      "66_card_deck": { "min": 13, "max": 13 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": true,
+    "can_stack": false,
+    "stacking_notes": "Suspended animation and extradimensional imprisonment end your turn and immediately stop all further card draws.",
+    "mitigation_notes": "Divination magic cannot locate you, but a Wish spell reveals the exact location of your prison sphere, allowing allies to launch a planar rescue mission.",
+    "emoji": "🏰",
+    "result_text": "Your party decides it'd be too much of a hassle to get you back. You roll a new character. The end.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Door",
+    "description": "You gain the ability to cast the Gate spell 1d4 times, requiring no material components. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 14, "max": 14 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "You gain the ability, not the casts.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "🚪",
+    "result_text": "This might come in handy.",
+    "short_description": "You can cast the Gate spell without material components.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Dragon",
+    "description": "A dragon egg appears at your feet and immediately hatches into a dragon wyrmling. The type of dragon is chosen by the DM. The wyrmling views you as its parent and is staunchly loyal to you and your allies.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 15, "max": 15 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw spawns a new distinct dragon egg that hatches into a separate loyal wyrmling.",
+    "mitigation_notes": "Beneficial effect; provide adequate nourishment, shelter, and protection for the young dragon.",
+    "emoji": "🐲",
+    "result_text": "This might come in handy.",
+    "short_description": "A dragon wyrmling.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Elemental",
+    "description": "You become immune to one of the following damage types (choose immediately upon drawing this card): acid, cold, fire, lightning, or thunder.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 16, "max": 16 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "You can select a different damage type upon drawing the card again, granting multiple immunities. Selecting an already chosen type does not stack under same-name rules.",
+    "mitigation_notes": "Beneficial effect; choose a commonly encountered damage type such as fire.",
+    "emoji": "❄️",
+    "result_text": "The cold never bothered me anyway.",
+    "short_description": "You are immune to the following damage types.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Euryale",
+    "description": "The card's medusa-like visage curses you. You take a -2 penalty to saving throws while cursed in this way. Only a god or the magic of the Fates card can end this curse.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 1, "max": 8 },
+      "22_card_deck": { "min": 15, "max": 18 },
+      "66_card_deck": { "min": 17, "max": 17 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Under D&D rules for combining game effects with the same name, penalties from the same curse do not stack with each other (the penalty remains -2).",
+    "mitigation_notes": "Can only be removed by a deity (divine intervention) or the Fates card. Mitigate the penalty using items like a Ring/Cloak of Protection or spells like Bless.",
+    "emoji": "🐍",
+    "result_text": "Surely this won't cause problems later on...",
+    "short_description": "-2 to saving throws.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": true
+  },
+  {
+    "name": "Expert",
+    "description": "Your Dexterity score increases by 2, to a maximum of 22.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 18, "max": 18 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Draws stack cumulatively until Dexterity reaches the maximum cap of 22.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "🎯",
+    "result_text": "You feel more dexterous.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Fates",
+    "description": "Reality's fabric unravels and spins anew, allowing you to avoid or erase one event as if it never happened. You can use the card's magic as soon as you draw the card or at any other time before you die.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": { "min": 19, "max": 23 },
+      "66_card_deck": { "min": 19, "max": 19 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Multiple Fates card uses can be banked and used independently to erase distinct events.",
+    "mitigation_notes": "Exceptional emergency safeguard; preserve it to reverse lethal outcomes, character death, or devastating card draws (e.g., Donjon, Void, Skull).",
+    "emoji": "🪡",
+    "result_text": "Now this will absolutely come in handy!",
+    "short_description": "You can undo a prior card draw.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Fey",
+    "description": "A fey crossing opens into the Feywild, and you're immediately pulled through it, disappearing in a flash of rainbow-colored light. You draw no more cards.\n\nThe fey crossing appears as a shimmering fractal of light above the deck, and it remains open for 1 minute after the card is drawn. The precise location in the Feywild to which the fey crossing leads is determined by the DM.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 20, "max": 20 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "You are immediately transported to another plane and draw no further cards from the deck.",
+    "mitigation_notes": "The portal remains open above the deck for 1 minute, allowing party members to step through together. Interplanar spells (Plane Shift, Gate) can bring you back.",
+    "emoji": "🧚",
+    "result_text": "Your party realizes you're gone when you don't come back for dinner- they cast Gate to retrieve you.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Fiend",
+    "description": "A powerful Fiend appears in a nearby unoccupied space and offers you a deal. The precise nature of this deal is up to the DM, but usually the Fiend offers some material reward in exchange for you and your allies completing a task for the Fiend. The Fiend is indifferent to you and can be bargained with; it keeps its side of any bargain it makes, though it might twist the wording of any agreement to suit its purposes. If attacked, or if negotiations fail and you refuse the Fiend's offer, it returns to its home plane.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 21, "max": 21 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw summons an independent powerful Fiend with a separate potential bargain.",
+    "mitigation_notes": "You can safely refuse the offer or attack the Fiend to make it immediately depart with no negative consequence. If bargaining, inspect all terms meticulously.",
+    "emoji": "😈",
+    "result_text": "You don't accept- you've been burned before.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Flames",
+    "description": "A powerful devil becomes your enemy. The devil seeks your ruin and torments you, savoring your suffering before attempting to slay you. This enmity lasts until either you or the devil dies.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 9, "max": 16 },
+      "22_card_deck": { "min": 24, "max": 27 },
+      "66_card_deck": { "min": 22, "max": 22 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Drawing the card multiple times causes distinct devils to target you with personal enmity.",
+    "mitigation_notes": "You can die and resurrect, assuming you have the material components for it...",
+    "emoji": "🔥",
+    "result_text": "You have a sneaking suspicion you've made a terrible enemy.",
+    "short_description": "A powerful devil.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Fool",
+    "description": "You have Disadvantage on D20 Tests for the next 72 hours. Draw another card; this draw doesn't count as one of your declared draws.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": { "min": 28, "max": 31 },
+      "66_card_deck": { "min": 23, "max": 23 }
+    },
+    "is_destroyed_after_use": true,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Disadvantage does not stack in 5e rules; duplicate applications merely overlap during their 72-hour duration.",
+    "mitigation_notes": "Avoid combat and hazardous skill checks for 72 hours. Gain sources of Advantage (e.g., Help action, Enhance Ability, Bless) to cancel out the Disadvantage.",
+    "emoji": "🤡",
+    "result_text": "You draw another card, then sleep off a terrible headache for three days.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Gem",
+    "description": "Twenty-five pieces of jewelry worth 2,000 GP each or fifty gems worth 1,000 GP each appear at your feet.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": { "min": 32, "max": 36 },
+      "66_card_deck": { "min": 24, "max": 24 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Physical treasure spawns cumulatively each time the card is drawn.",
+    "mitigation_notes": "Beneficial effect; have extradimensional storage (e.g., Bag of Holding) ready to carry the heavy treasure.",
+    "emoji": "💎",
+    "result_text": "Money!",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Giant",
+    "description": "You immediately grow 2d10 inches in height, and your hit point maximum and current hit points both increase by 20.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 25, "max": 25 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Permanent instant increases to hit points and height stack cumulatively with each draw.",
+    "mitigation_notes": "Beneficial effect; you may need to resize armor or clothing if your size category increases.",
+    "emoji": "💪",
+    "result_text": "At what point are you too tall?",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Humanoid",
+    "description": "You can immediately choose to stop drawing from the deck, regardless of how many cards you initially declared.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 26, "max": 26 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Instantaneous optional trigger allowing you to cease declared draws immediately.",
+    "mitigation_notes": "Acts as an emergency stop mechanism to avoid potential future catastrophe from remaining declared draws.",
+    "emoji": "👤",
+    "result_text": "Nothing interesting happens.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Jester",
+    "description": "You have Advantage on D20 Tests for the next 72 hours, or you can draw two additional cards beyond your declared draws.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 17, "max": 24 },
+      "22_card_deck": { "min": 37, "max": 41 },
+      "66_card_deck": { "min": 27, "max": 27 }
+    },
+    "is_destroyed_after_use": true,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Advantage does not stack with itself under D&D rules. However, you may choose the option to draw two additional cards instead.",
+    "mitigation_notes": "Beneficial effect; choose the 72-hour Advantage buff unless you actively desire to gamble on more card draws.",
+    "emoji": "🃏",
+    "result_text": "You feel great, but decide to just draw cards one at a time.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Key",
+    "description": "A Rare or rarer magic weapon with which you are proficient appears on your person. The DM chooses the weapon.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 25, "max": 32 },
+      "22_card_deck": { "min": 42, "max": 46 },
+      "66_card_deck": { "min": 28, "max": 28 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw grants an additional, distinct magic weapon.",
+    "mitigation_notes": "Beneficial effect; manage attunement slots if the weapon requires attunement.",
+    "emoji": "🗝️",
+    "result_text": "This might come in handy.",
+    "short_description": "Rare (or rarer) magic weapon.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Knight",
+    "description": "You gain the service of a Knight, who magically appears in an unoccupied space you choose within 30 feet of yourself. The knight has the same alignment as you and serves you loyally until death, believing the two of you have been drawn together by fate. Work with your DM to create a name and backstory for this NPC. The DM can use a different stat block to represent the knight, as desired.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 33, "max": 40 },
+      "22_card_deck": { "min": 47, "max": 51 },
+      "66_card_deck": { "min": 29, "max": 29 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw summons a new individual knight who serves you loyally.",
+    "mitigation_notes": "Beneficial effect; furnish the knight with upgraded equipment and healing to keep them alive.",
+    "emoji": "🐴",
+    "result_text": "This might come in handy.",
+    "short_description": "A Knight.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Lance",
+    "description": "All your ability scores increase by 1, to a maximum of 20.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 30, "max": 30 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Ability score bonuses stack cumulatively with each draw until each score reaches the maximum cap of 20.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "⬆️",
+    "result_text": "You feel great today.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Mage",
+    "description": "Your Intelligence score increases by 2, to a maximum of 22.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 31, "max": 31 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Stacks cumulatively with each draw until Intelligence reaches 22.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "🧙",
+    "result_text": "You put on your glasses and feel much smarter.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Map",
+    "description": "At any time you choose within 1 year of drawing this card, you can mentally name or describe an object or individual that is familiar to you. You immediately know the location of the object or individual, as well as the distance between you and the object or individual, even if the object or individual is on a different plane of existence. If you named an individual, you know if they are alive and any conditions they have. If you named an object, you know if it is broken or not. If you named a magic item that has charges, you know how many charges it has remaining.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 32, "max": 32 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "No stacking.",
+    "mitigation_notes": "Beneficial effect; reserve it to locate missing allies, key artifacts, or main quest targets.",
+    "emoji": "🗺️",
+    "result_text": "This might come in handy.",
+    "short_description": "You can locate something.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Maze",
+    "description": "You gain 1d3 levels of exhaustion.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 33, "max": 33 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Exhaustion levels stack cumulatively across draws up to maximum exhaustion.",
+    "mitigation_notes": "Rest immediately to remove levels through long rests. Spells such as Greater Restoration can immediately reduce exhaustion levels.",
+    "emoji": "🧱",
+    "result_text": "You feel tired; your Cleric casts a couple spells and you sleep it off.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Mine",
+    "description": "A pile of 2d6 gems (each worth 5,000 gp) and 1d10 chunks of precious ore (each worth 2,500 gp) appears at your feet.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 34, "max": 34 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Physical treasure stacks additively with each draw.",
+    "mitigation_notes": "Beneficial effect; ensure you have means to transport heavy gems and ore.",
+    "emoji": "⛏️",
+    "result_text": "Money!",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Monstrosity",
+    "description": "A Large or larger Monstrosity with a challenge rating of 10 or less (chosen by the DM) appears in an unoccupied space within 15 feet of you. The creature is hostile toward you and attacks immediately. The creature disappears when it is killed or when you are reduced to 0 hit points. If there isn't enough space for a Large or larger creature to appear, this card has no effect.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 35, "max": 35 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Multiple draws spawn multiple independent monstrosities if unoccupied space is available.",
+    "mitigation_notes": "Drawing cards in a confined room with less than a 10x10-foot unoccupied space within 15 feet negates the effect entirely. Otherwise, party members can assist in defeating it.",
+    "emoji": "👹",
+    "result_text": "Luckily you're pulling cards in a room small enough that the Monstrisity cannot appear. Nothing interesting happens.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Moon",
+    "description": "You gain the ability to cast Wish 1d3 times.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 41, "max": 48 },
+      "22_card_deck": { "min": 52, "max": 56 },
+      "66_card_deck": { "min": 36, "max": 36 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "You gain the ability, not the casts.",
+    "mitigation_notes": "Highly beneficial; use Wish to undo any catastrophic deck outcomes or solve critical problems.",
+    "emoji": "🌙",
+    "result_text": "Now this will absolutely come in handy!",
+    "short_description": "You gain the ability to cast Wish.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Ooze",
+    "description": "A gelatinous cube immediately appears in your space and engulfs you. The gelatinous cube is hostile and remains until it is destroyed. If there isn't enough space for the gelatinous cube to appear, this card has no effect.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 37, "max": 37 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Because it appears in your exact space and engulfs you, multiple gelatinous cubes cannot occupy the same 10-foot cube space simultaneously.",
+    "mitigation_notes": "Draw cards in an area too small for a 10-foot cube to negate the effect. If engulfed, allies can use an action to make a DC 12 Strength check to pull you free.",
+    "emoji": "🧊",
+    "result_text": "Luckily you're pulling cards in a room small enough that the Gelatinous Cube cannot appear. Nothing interesting happens.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Path",
+    "description": "Your walking speed increases by 10 feet.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 38, "max": 38 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Instant permanent modifications to base walking speed stack additively.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "👣",
+    "result_text": "You feel fast.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Pit",
+    "description": "A pit opens beneath you. You plummet 3d6 x 10 feet, take damage from the fall, and have the prone condition.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 39, "max": 39 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw opens a separate pit, causing sequential falls and damage.",
+    "mitigation_notes": "Cast Feather Fall as a reaction to eliminate all falling damage, or possess an active flying speed/hover ability.",
+    "emoji": "🕳️",
+    "result_text": "You fall and sprain your ankle- then have to spend a day filling in the pit.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Plant",
+    "description": "You gain the ability to cast Speak with Plants without using a spell slot; you must finish a long rest before you can cast it this way again. If you have spell slots of 3rd level or higher, you can cast this spell using them. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 40, "max": 40 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Duplicate features granting the same spell once per long rest do not stack to grant multiple free uses under standard 5e feature rules.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "🌿",
+    "result_text": "This might come in handy.",
+    "short_description": "You can Speak with Plants once per long rest.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Priest",
+    "description": "Your Wisdom score increases by 2, to a maximum of 22.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 41, "max": 41 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Stacks cumulatively with each draw until Wisdom reaches 22.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "🙏",
+    "result_text": "You feel wise.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Prisoner",
+    "description": "Glowing chains made of magical force appear and wrap around you. You have the restrained condition until the chains are destroyed or you are freed. While you have this condition, you can't cast spells, and any magic items you're wearing or carrying have their properties suppressed. You draw no more cards. The chains are immune to damage and can't be dispelled using the Dispel Magic spell or similar magic. However, a Disintegrate spell destroys the chains instantly, freeing you. Another creature can also free you by succeeding on a DC 30 Dexterity check using thieves' tools.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 42, "max": 42 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "You are restrained, magic items are suppressed, and the card explicitly terminates further draws.",
+    "mitigation_notes": "An ally can free you instantly with a Disintegrate spell, or pick the lock with a DC 30 Dexterity check using thieves' tools.",
+    "emoji": "⛓️",
+    "result_text": "Your party eventually finds you later that evening and casts disintigrate on your chains.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Puzzle",
+    "description": "Permanently reduce your Intelligence or Wisdom by 1d4 + 1 (to a minimum score of 1). You can draw one additional card beyond your declared draws.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": { "min": 57, "max": 60 },
+      "66_card_deck": { "min": 43, "max": 43 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Permanent reductions to ability scores stack cumulatively down to a minimum score of 1. You also receive an extra draw each time.",
+    "mitigation_notes": "Choose your non-primary ability score (Intelligence or Wisdom) to minimize combat impact. Lost points can be restored via Greater Restoration or Wish depending on DM adjudication.",
+    "emoji": "🧩",
+    "result_text": "Hopefully you can still speak?",
+    "short_description": "Mental damage.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Ring",
+    "description": "A rare or rarer magic ring appears on your finger. If you have the attunement slots available, you're automatically attuned to the ring when it appears. The DM chooses the ring.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 44, "max": 44 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw grants an additional magic ring.",
+    "mitigation_notes": "Beneficial effect; ensure attunement slots are available or manage attunements afterward.",
+    "emoji": "💍",
+    "result_text": "You take off the ring and throw it in your pile of loot.",
+    "short_description": "Rare (or rarer) magic ring.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Rogue",
+    "description": "An NPC of the DM's choice becomes Hostile toward you. You don't know the identity of this NPC until they or someone else reveals it. Nothing less than a Wish spell or divine intervention can end the NPC's hostility toward you.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 49, "max": 56 },
+      "22_card_deck": { "min": 61, "max": 64 },
+      "66_card_deck": { "min": 45, "max": 45 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": true,
+    "can_stack": true,
+    "stacking_notes": "Multiple draws cause separate NPCs to turn hostile against you.",
+    "mitigation_notes": "Cast Wish or call on divine intervention to dispel the enmity, or employ divination spells to identify the hostile NPC and take precautions.",
+    "emoji": "🗡️",
+    "result_text": "You have a sneaking suspicion that an old friend now hates you.",
+    "short_description": "A random NPC in the world.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": true
+  },
+  {
+    "name": "Ruin",
+    "description": "All forms of wealth that you carry or own, other than magic items, are lost to you. Portable property vanishes. Businesses, buildings, and land you own are lost in a way that alters reality the least. If you have a Bastion (see the Dungeon Master's Guide), it is destroyed by some calamity beyond your control. Any documentation that proves you should own something lost to this card also disappears.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 57, "max": 64 },
+      "22_card_deck": { "min": 65, "max": 68 },
+      "66_card_deck": { "min": 46, "max": 46 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw strips any newly acquired nonmagical wealth or holdings.",
+    "mitigation_notes": "Transfer nonmagical wealth, property deeds, and currency to fellow party members or convert assets entirely into magic items beforehand (magic items are explicitly immune).",
+    "emoji": "📉",
+    "result_text": "Panic sell everything.",
+    "short_description": "Lost everything (well, not magical items).",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Sage",
+    "description": "At any time you choose within one year of drawing this card, you can ask a question in meditation and mentally receive a truthful answer to that question.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": { "min": 69, "max": 73 },
+      "66_card_deck": { "min": 47, "max": 47 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw grants a separate truthful answer charge usable within 1 year.",
+    "mitigation_notes": "Beneficial effect; preserve it for critical lore discoveries, weaknesses of villains, or finding lost relics.",
+    "emoji": "👴",
+    "result_text": "This might come in handy.",
+    "short_description": "At any time you choose within one year of drawing this card, you can ask a question in meditation and mentally receive a truthful answer to that question.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Shield",
+    "description": "A rare or rarer suit of magic armor that you are proficient with appears in your hands. The DM chooses the armor. If you lack proficiency with any armor, your base AC instead now equals 12 + your Dexterity modifier while you aren't wearing armor.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 48, "max": 48 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Assume not proficient.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "🛡️",
+    "result_text": "It's like Mage Armor but all the time!",
+    "short_description": "Your base AC is 12 + your Dexterity modifier while you aren't wearing armor.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Ship",
+    "description": "You gain proficiency in three skills chosen by the DM.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 49, "max": 49 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "The DM can assign proficiency in up to 3 additional unlearned skills on subsequent draws.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "⛵",
+    "result_text": "Isn't that nice?",
+    "short_description": "You have proficiency in additional skills.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Skull",
+    "description": "An Avatar of Death appears in an unoccupied space as close to you as possible. The avatar targets only you with its attacks, appearing as a ghostly skeleton clad in a tattered black robe and carrying a spectral scythe. The avatar disappears when it drops to 0 Hit Points or you die. If an ally of yours deals damage to the avatar, that ally summons another Avatar of Death. The new avatar appears in an unoccupied space as close to that ally as possible and targets only that ally with its attacks. You and your allies can each summon only one avatar as a consequence of this draw. A creature slain by an avatar can't be restored to life.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 65, "max": 72 },
+      "22_card_deck": { "min": 74, "max": 77 },
+      "66_card_deck": { "min": 50, "max": 50 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "The card explicitly specifies that you and your allies can each summon only one avatar as a consequence of this draw.",
+    "mitigation_notes": "Allies must NEVER deal damage to your avatar. However, allies CAN cast healing and buff spells on you, or non-damaging debuffs/restraints on the avatar, allowing you to defeat it safely.",
+    "emoji": "💀",
+    "result_text": "What are the odds this thing actually kills you?",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Staff",
+    "description": "A rare or rarer magic rod, staff, or wand appears in your hands. The DM chooses the item.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 51, "max": 51 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw grants an additional magic rod, staff, or wand.",
+    "mitigation_notes": "Beneficial effect; manage attunement slots if required.",
+    "emoji": "🪄",
+    "result_text": "More loot!",
+    "short_description": "A rare (or rarer) magic rod, staff, or wand.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Stairway",
+    "description": "You can choose to either decrease your number of declared draws by two or receive a rare or rarer wondrous item, which appears in your hands. The DM chooses the item.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 52, "max": 52 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "You can repeatedly choose either option upon multiple draws, reducing declared draws further or gaining multiple wondrous items.",
+    "mitigation_notes": "Beneficial effect; choose to decrease declared draws to avoid remaining potential hazards if desired.",
+    "emoji": "🪜",
+    "result_text": "More loot!",
+    "short_description": "A rare (or rarer) wonderous item.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Star",
+    "description": "Increase one of your ability scores by 2, to a maximum of 24.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 73, "max": 80 },
+      "22_card_deck": { "min": 78, "max": 82 },
+      "66_card_deck": { "min": 53, "max": 53 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Stacks cumulatively with each draw until the selected ability score reaches the maximum cap of 24.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "⭐",
+    "result_text": "You feel great today.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Statue",
+    "description": "You immediately have the petrified condition as your body is transformed into marble. The petrification lasts until you are freed with the Greater Restoration spell or similar magic.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 54, "max": 54 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "The petrified condition does not stack with itself, and petrified creatures are incapacitated and cannot draw cards.",
+    "mitigation_notes": "An ally can remove the petrification immediately by casting Greater Restoration or using anti-petrification oils/magical remedies.",
+    "emoji": "🗿",
+    "result_text": "Your party brings your statue back to the campfire, and enjoys an unusually quiet evening before the Cleric casts Greater Restoration on you.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Sun",
+    "description": "A magic item (chosen by the DM) appears on your person. In addition, you gain 10 Temporary Hit Points daily at dawn until you die.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 81, "max": 88 },
+      "22_card_deck": { "min": 83, "max": 87 },
+      "66_card_deck": { "min": 55, "max": 55 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "You gain another magic item, but under 5e rules, Temporary Hit Points never stack; you merely retain the 10 temporary HP refreshed daily.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "☀️",
+    "result_text": "More loot!",
+    "short_description": "A magic item./10 Temporary Hit Points daily at dawn until you die.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Talons",
+    "description": "Every magic item you wear or carry disintegrates. Artifacts in your possession vanish instead.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": { "min": 88, "max": 91 },
+      "66_card_deck": { "min": 56, "max": 56 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": true,
+    "can_stack": true,
+    "stacking_notes": "Subsequent draws disintegrate any newly acquired or retrieved magic items in your possession.",
+    "mitigation_notes": "Drop all magic items and artifacts on the ground or hand them to an ally before declaring or drawing any cards from the deck.",
+    "emoji": "🦅",
+    "result_text": "All your magic items disintigrate, including the deck in your hands. The end.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Tavern",
+    "description": "Your Charisma score increases by 2 to a maximum of 22.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 57, "max": 57 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Stacks cumulatively with each draw until Charisma reaches the maximum cap of 22.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "🍻",
+    "result_text": "Rizz.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Temple",
+    "description": "A deity or entity of similar power becomes bound to aid you. At any point in time between drawing the card and when you die, you can use your action to call on this entity for divine intervention, and the entity is bound to answer. The parameters and nature of this intervention are chosen by the DM. If you die without having used this intervention, the deity fulfills its obligation by casting the Resurrection spell on you. Once the entity has answered your call for divine intervention or resurrected you, the entity is no longer bound to aid you.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 58, "max": 58 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw binds another distinct powerful entity to grant divine intervention or auto-resurrection.",
+    "mitigation_notes": "Beneficial effect; serves as a guaranteed failsafe against death or campaign-ending catastrophes.",
+    "emoji": "🛕",
+    "result_text": "This might come in handy.",
+    "short_description": "A deity will answer your call for divine resurection, or will resurrect you.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Throne",
+    "description": "You gain proficiency and Expertise in your choice of History, Insight, Intimidation, or Persuasion. In addition, you gain rightful ownership of a small keep somewhere in the world. However, the keep is currently home to one or more monsters, which must be cleared out before you can claim the keep as yours.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 89, "max": 96 },
+      "22_card_deck": { "min": 92, "max": 96 },
+      "66_card_deck": { "min": 59, "max": 59 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "You can select a different skill for proficiency and Expertise on subsequent draws, and gain ownership of additional keeps.",
+    "mitigation_notes": "Mount an organized expedition with allies or hirelings to clear the monsters infesting your keep.",
+    "emoji": "👑",
+    "result_text": "This might come in handy.",
+    "short_description": "You have Expertiese in the following skills.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Tomb",
+    "description": "At any time you choose within 1 year of drawing this card, you can cast the True Resurrection spell once without expending a spell slot or requiring material components. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 60, "max": 60 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Each draw grants an additional component-free casting of True Resurrection usable within 1 year.",
+    "mitigation_notes": "Beneficial effect; preserve it for companions who died without a body or cannot be raised by ordinary magic.",
+    "emoji": "⚰️",
+    "result_text": "Free Resurrection... but you can't use it on yourself.",
+    "short_description": "At any time you choose within 1 year of drawing this card, you can cast the True Resurrection spell once without expending a spell slot or requiring material components.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Tower",
+    "description": "Draw two additional cards beyond your declared number of draws. The magic of these cards doesn't immediately take effect; instead, choose one of the two additional cards to keep, returning the other to the deck. The magic of the card you keep takes effect immediately thereafter.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 61, "max": 61 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw allows a separate instance of drawing two cards and keeping the preferred one.",
+    "mitigation_notes": "Provides decision control to discard harmful cards in favor of beneficial options.",
+    "emoji": "🗼",
+    "result_text": "You've got a choice to make...",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Tree",
+    "description": "Your skin immediately becomes rough, like tree bark. Your base AC now equals 15 + your Dexterity modifier while you aren't wearing armor, but you have vulnerability to fire damage. This transformation can be undone only by the Wish spell, divine intervention, or similar magic.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 62, "max": 62 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Under 5e rules, base AC calculation formulas and damage vulnerabilities of the same name do not stack.",
+    "mitigation_notes": "Acquire fire resistance (e.g., Ring of Fire Resistance or Protection from Energy); in 5e, having both resistance and vulnerability cancels out to normal damage. Wish or divine intervention can undo the transformation.",
+    "emoji": "🌳",
+    "result_text": "Does this make your seasonal allergies better or worse?",
+    "short_description": "Your skin immediately becomes rough, like tree bark. Your base AC now equals 15 + your Dexterity modifier while you aren't wearing armor, but you have vulnerability to fire damage. This transformation can be undone only by the Wish spell, divine intervention, or similar magic.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": true
+  },
+  {
+    "name": "Undead",
+    "description": "Somewhere on the Material Plane, a revenant rises. This revenant blames you for its existence and relentlessly hunts you to exact its revenge. The revenant exists until either 1 year passes, the revenant kills you, or you use a Wish spell to banish it permanently to the afterlife.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 63, "max": 63 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw spawns an additional distinct revenant seeking vengeance.",
+    "mitigation_notes": "Cast Wish to banish the revenant permanently, or incapacitate/imprison it (e.g., Magic Jar, Imprisonment, or high-security containment) for 1 year until its existence expires.",
+    "emoji": "🧛‍♂️",
+    "result_text": "You have a sneaking suspicion you've made a fairly weak enemy.",
+    "short_description": "A revenant.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Void",
+    "description": "Your soul is drawn from your body and contained in an object in a place of the DM's choice. One or more powerful beings guard the place. While your soul is trapped in this way, your body is inert, ceases aging, and requires no food, air, or water. A Wish spell can't return your soul to your body, but the spell reveals the location of the object that holds your soul. You draw no more cards.",
+    "roll_ranges": {
+      "13_card_deck": { "min": 97, "max": 100 },
+      "22_card_deck": { "min": 97, "max": 100 },
+      "66_card_deck": { "min": 64, "max": 64 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": true,
+    "can_stack": false,
+    "stacking_notes": "Your soul is drawn out and your body becomes inert; all card draws end immediately.",
+    "mitigation_notes": "A Wish spell reveals the location of the object trapping your soul. Allies must preserve your inert body and undertake a rescue quest to defeat the guardians and recover your soul.",
+    "emoji": "🌌",
+    "result_text": "Your party decides it'd be too much of a hassle to get you back. You roll a new character. The end.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Warrior",
+    "description": "Your Strength score increases by 2 to a maximum of 22.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 65, "max": 65 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Stacks cumulatively with each draw until Strength reaches the maximum cap of 22.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "⚔️",
+    "result_text": "You feel strong.",
+    "short_description": "peepeepoopoo",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Well",
+    "description": "You learn three cantrips of your choice from any spell list.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 66, "max": 66 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": true,
+    "stacking_notes": "Each draw allows you to learn three additional cantrips of your choice from any class list.",
+    "mitigation_notes": "Beneficial effect; no mitigation required.",
+    "emoji": "💦",
+    "result_text": "This might come in handy.",
+    "short_description": "You learn additional cantrips.",
+    "causes_wish_stress": true,
+    "divine_intervention_removal": false
+  },
+  {
+    "name": "Roll again",
+    "description": "Roll again on the Deck of Many More Things table.",
+    "roll_ranges": {
+      "13_card_deck": null,
+      "22_card_deck": null,
+      "66_card_deck": { "min": 67, "max": 100 }
+    },
+    "is_destroyed_after_use": false,
+    "is_extremely_bad": false,
+    "can_stack": false,
+    "stacking_notes": "Rerolling is an instantaneous instruction to roll on the table again until a numbered card (1-66) is determined.",
+    "mitigation_notes": "Reroll the d100 until an actual card is drawn.",
+    "emoji": "🎲",
+    "result_text": "Try again..."
+  }
+]
