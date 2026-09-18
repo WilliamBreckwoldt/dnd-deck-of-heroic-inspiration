@@ -217,7 +217,7 @@ INDEX_HTML = """
 
         <!-- Left Panel: Stats -->
         <div class="w-1/3 bg-white p-4 rounded-xl shadow border">
-            <h2 class="text-xl font-bold mb-3">🛡️ Character</h2>
+            <h2 class="text-xl font-bold mb-3">Greg the Wizard</h2>
             
             <!-- Heroic Inspiration Indicator -->
             <div :class="s.has_heroic_inspiration ? 'bg-amber-50 border-amber-400 text-amber-900 shadow-sm' : 'bg-gray-50 border-gray-200 text-gray-400'"
@@ -293,13 +293,13 @@ INDEX_HTML = """
             </div>
 
             <button @click="drawCard" :disabled="s.game_over || s.active_beast_days > 0" class="w-full bg-blue-600 text-white text-2xl font-bold py-6 rounded-xl shadow hover:bg-blue-700 disabled:opacity-50 transition">
-                🎴 DRAW CARD
+                Draw a card
             </button>
 
             <div class="bg-white p-4 rounded-xl shadow border flex flex-wrap gap-2">
-                <button @click="api('rest')" :disabled="s.game_over" class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded font-bold hover:bg-indigo-200">⛺ Advance 1 Day</button>
-                <button @click="api('die')" :disabled="s.game_over" class="bg-red-100 text-red-800 px-4 py-2 rounded font-bold hover:bg-red-200">💀 Die & Resurrect (1,000 gp)</button>
-                <button @click="api('transfer')" :disabled="s.game_over" class="bg-green-100 text-green-800 px-4 py-2 rounded font-bold hover:bg-green-200">🏦 Transfer ALL Gold</button>
+                <button @click="api('rest')" :disabled="s.game_over" class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded font-bold hover:bg-indigo-200">Take a Long Rest</button>
+                <button @click="api('die')" :disabled="s.game_over" class="bg-red-100 text-red-800 px-4 py-2 rounded font-bold hover:bg-red-200">Die & Resurrect (1,000 gp)</button>
+                <button @click="api('transfer')" :disabled="s.game_over" class="bg-green-100 text-green-800 px-4 py-2 rounded font-bold hover:bg-green-200">Transfer gold to party</button>
             </div>
 
             <!-- Purify Panel -->
@@ -308,7 +308,7 @@ INDEX_HTML = """
                     <option value="" disabled>Select Curse/Enemy to Cleanse...</option>
                     <option v-for="t in curableTargets" :value="t">{{t}}</option>
                 </select>
-                <button @click="api('purify', {source: 'Wish', target: purifyTarget})" :disabled="!canWish" class="bg-purple-600 text-white px-4 py-2 rounded font-bold hover:bg-purple-700 disabled:opacity-50">✨ Wish</button>
+                <button @click="api('purify', {source: 'Wish', target: purifyTarget})" :disabled="!canWish" class="bg-purple-600 text-white px-4 py-2 rounded font-bold hover:bg-purple-700 disabled:opacity-50">🌙 Wish</button>
                 <button @click="api('purify', {source: 'Fates', target: purifyTarget})" :disabled="!canFates" class="bg-purple-600 text-white px-4 py-2 rounded font-bold hover:bg-purple-700 disabled:opacity-50">🪡 Fates</button>
                 <button @click="api('purify', {source: 'Temple', target: purifyTarget})" :disabled="!canTemple" class="bg-purple-600 text-white px-4 py-2 rounded font-bold hover:bg-purple-700 disabled:opacity-50">🛕 Temple</button>
             </div>
