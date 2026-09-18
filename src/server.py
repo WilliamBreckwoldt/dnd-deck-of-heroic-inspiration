@@ -198,7 +198,7 @@ INDEX_HTML = """
                 <p class="text-gray-700 leading-relaxed text-sm text-left mb-6 bg-gray-50 p-4 rounded-xl border border-gray-200">
                     You are a <strong>13th level Human Wizard</strong> with some downtime and a <strong>Deck of Many Things</strong> (technically the 66 card "Deck of Many More Things" but you can also select the 13 or 22 card Deck of Many Things variants when you start a new run).
                     <br/><br/>
-                    As a 5.5e Human you gain <strong>Heroic Inspiration</strong> every long rest, and this allows you to <strong>manipulate any dice roll by clicking on the result.</strong>
+                    As a 5.5e Human you gain <strong>Heroic Inspiration</strong> every long rest, and this allows you to <strong>manipulate any dice roll by clicking on the result. This is quite powerful as the Deck of Many Things is actually a d100 roll!</strong>
                     <br/><br/>
                     How strong can you become?
                 </p>
@@ -374,14 +374,14 @@ INDEX_HTML = """
                                 {{ isAnimUnits ? animD100.units : (s.current_roll ? s.current_roll.units : '0') }}
                             </div>
                         </div>
-                        <div class="card-box" :class="{'interactive': s.modal_phase === 'd100_wait' && !isAnimating}" @click="clickCard">
+                        <div class="card-box" :class="{'interactive': (s.modal_phase === 'd100_wait' || (s.modal_phase === 'revealed' && s.pending_card && s.pending_card.name === 'Roll again')) && !isAnimating}" @click="clickCard">
                             <div style="font-size: 55px;">{{ (isAnimTens || isAnimUnits) ? animD100.emoji : (s.pending_card ? s.pending_card.emoji : '❓') }}</div>
                             <div class="font-bold mt-2 leading-tight">{{ (isAnimTens || isAnimUnits) ? animD100.name : (s.pending_card ? s.pending_card.name : '...') }}</div>
                         </div>
                     </div>
                     <!-- Standard card click hint (Shows on first draw of the run) -->
                     <div v-if="s.modal_phase === 'd100_wait' && !hasShownCardHint" class="mt-4 text-sm font-bold text-blue-700 leading-snug bg-blue-50 px-5 py-2.5 rounded-xl border border-blue-200 shadow-sm animate-pulse">
-                        Click the card to reveal immediately! 👆<br/>
+                        Click the card to {{ (s.pending_card && s.pending_card.name === 'Roll again') ? 're-roll' : 'reveal' }} immediately! 👆<br/>
                         <span class="text-xs text-blue-500 font-normal">(or click one of the dice to re-roll it)</span>
                     </div>
                 </div>
@@ -447,7 +447,7 @@ INDEX_HTML = """
                     <button @click="submitContinue" 
                             :disabled="isAnimSec || isAnimTens || isAnimUnits || !canContinue" 
                             class="bg-blue-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition">
-                        Continue
+                        {{ (s.pending_card && s.pending_card.name === 'Roll again' && !s.has_heroic_inspiration) ? 'Rerolling... 🎲' : 'Continue' }}
                     </button>
                 </div>
 
@@ -463,6 +463,7 @@ INDEX_HTML = """
                 return {
                     showIntro: true,
                     hasShownCardHint: false,
+                    autoAdvanceTimer: null,
                     s: { history_log: [], buffs: {}, curses: {}, allies: {}, enemies: {}, loot: {}, pending_transfers: [], secondary_rolls: [], modal_phase: 'idle', age: 25, height_inches: 68 },
                     deckData: [], deckSize: "66", purifyTarget: "", c1: "", c2: "",
                     isAnimTens: false, isAnimUnits: false, isAnimSec: false, animSecTarget: null,
@@ -524,6 +525,23 @@ INDEX_HTML = """
                 }
             },
             methods: {
+                clearAutoAdvance() {
+                    if (this.autoAdvanceTimer) {
+                        clearTimeout(this.autoAdvanceTimer);
+                        this.autoAdvanceTimer = null;
+                    }
+                },
+                checkAutoAdvance() {
+                    this.clearAutoAdvance();
+                    if (this.isAnimating) return;
+                    if (this.s.modal_phase === 'revealed' && this.s.pending_card && this.s.pending_card.name === 'Roll again') {
+                        this.autoAdvanceTimer = setTimeout(() => {
+                            if (this.s.modal_phase === 'revealed' && this.s.pending_card && this.s.pending_card.name === 'Roll again') {
+                                this.submitContinue();
+                            }
+                        }, 1000);
+                    }
+                },
                 getSessionId() {
                     let sid = localStorage.getItem('dnd_deck_session_id');
                     if (!sid) {
@@ -533,6 +551,7 @@ INDEX_HTML = """
                     return sid;
                 },
                 startNewGame() {
+                    this.clearAutoAdvance();
                     this.hasShownCardHint = false;
                     this.api('new_game', {size: parseInt(this.deckSize)});
                 },
@@ -592,6 +611,9 @@ INDEX_HTML = """
                         });
                         const payload = await res.json();
                         this.s = payload.state;
+                        if (!this.isAnimating) {
+                            this.checkAutoAdvance();
+                        }
                     } catch (err) { console.error(err); }
                 },
                 async init() {
@@ -616,18 +638,29 @@ INDEX_HTML = """
                 },
                 async revealNow() {
                     this.markHintShown();
+                    this.clearAutoAdvance();
                     clearInterval(this.timerInt);
                     if(this.s.modal_phase === 'd100_wait') {
                         await this.api('reveal_d100');
                         if(this.s.secondary_rolls && this.s.secondary_rolls.length > 0) {
                             this.runAnim('sec');
+                        } else {
+                            this.checkAutoAdvance();
                         }
                     } else if(this.s.modal_phase === 'tower_wait') {
                         await this.api('reveal_tower');
                     }
                 },
                 clickCard() {
-                    if(!this.s.modal_phase.endsWith('_wait') || this.isAnimating) return;
+                    if(this.isAnimating) return;
+                    if(this.s.pending_card && this.s.pending_card.name === 'Roll again') {
+                        this.markHintShown();
+                        clearInterval(this.timerInt);
+                        this.clearAutoAdvance();
+                        this.submitContinue();
+                        return;
+                    }
+                    if(!this.s.modal_phase.endsWith('_wait')) return;
                     this.revealNow();
                 },
                 runAnim(type, arg1=false, arg2=false, arg3=false, arg4=false) {
@@ -679,16 +712,20 @@ INDEX_HTML = """
 
                         if(this.s.modal_phase.endsWith('_wait')) {
                             this.startTimer();
+                        } else {
+                            this.checkAutoAdvance();
                         }
                     }, 500);
                 },
                 async drawCard() {
+                    this.clearAutoAdvance();
                     this.runAnim('d100', true, true);
                     await this.api('draw');
                 },
                 async clickDie(die) {
                     if(this.s.modal_phase !== 'd100_wait' || !this.s.has_heroic_inspiration || this.isAnimating) return;
                     this.markHintShown();
+                    this.clearAutoAdvance();
                     clearInterval(this.timerInt);
                     this.runAnim('d100', die === 'tens', die === 'units');
                     await this.api('reroll_d100', {die});
@@ -707,6 +744,7 @@ INDEX_HTML = """
                     this.runAnim('tower', cIdx===0&&die==='tens', cIdx===0&&die==='units', cIdx===1&&die==='tens', cIdx===1&&die==='units');
                 },
                 async submitContinue() {
+                    this.clearAutoAdvance();
                     let prevCard = this.s.pending_card ? this.s.pending_card.name : '';
                     await this.api('continue', {c1: this.c1, c2: this.c2});
                     this.c1 = ""; this.c2 = "";
