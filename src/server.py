@@ -198,7 +198,7 @@ INDEX_HTML = """
                 <p class="text-gray-700 leading-relaxed text-sm text-left mb-6 bg-gray-50 p-4 rounded-xl border border-gray-200">
                     You are a <strong>13th level Human Wizard</strong> with some downtime and a <strong>Deck of Many Things</strong> (technically the 66 card "Deck of Many More Things" but you can also select the 13 or 22 card Deck of Many Things variants when you start a new run).
                     <br/><br/>
-                    As a 5.5e Human you gain <strong>Heroic Inspiration</strong> every long rest, and this allows you to <strong>manipulate any dice roll by clicking on the result. This is quite powerful as the Deck of Many Things is actually a d100 roll!</strong>
+                    As a 5.5e Human you gain <strong>Heroic Inspiration</strong> every long rest, and this allows you to <strong>manipulate any dice roll by clicking on the result.</strong> Considering the Deck of Many Things is a d100 roll (two d10 dice, you can re-roll one of them), perhaps you can manipulate the deck to your advantage...
                     <br/><br/>
                     How strong can you become?
                 </p>
