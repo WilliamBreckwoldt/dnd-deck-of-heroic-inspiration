@@ -1040,7 +1040,7 @@
     "mitigation_notes": "Beneficial effect; no mitigation required.",
     "emoji": "☀️",
     "result_text": "More loot!",
-    "short_description": "A magic item./10 Temporary Hit Points daily at dawn until you die.",
+    "short_description": "Sun:",
     "causes_wish_stress": true,
     "divine_intervention_removal": false
   },

@@ -154,6 +154,8 @@ def commit_card_final(state: GameState, payload: dict = None):
                 else:
                     if data["c1"] not in state.buffs["Elemental"].details:
                         state.buffs["Elemental"].details.append(data["c1"])
+            else:
+                state.log_event("🛡️", "Elemental: All damage immunities already gained.")
 
         case "Euryale": 
             if "Euryale" not in state.curses:
@@ -173,7 +175,7 @@ def commit_card_final(state: GameState, payload: dict = None):
             advance_time(state, 1)
 
         case "Fiend": 
-            pass # Does nothing; not tracked as an enemy
+            pass
 
         case "Flames": 
             state.add_tracked("enemies", card)
@@ -270,7 +272,6 @@ def commit_card_final(state: GameState, payload: dict = None):
             state.add_tracked("enemies", card)
 
         case "Ruin": 
-            # Track lost player gold AND lost pending transfers so Fates can reverse both
             lost_player_gold = state.player_gold
             lost_transfers = [t.copy() for t in state.pending_transfers]
             lost_transfer_amount = sum(t["amount"] for t in lost_transfers)
@@ -283,7 +284,6 @@ def commit_card_final(state: GameState, payload: dict = None):
                 "pending_transfers": lost_transfers,
                 "total_lost": total_gold_lost
             })
-            # Tooltip details now reflect the full combined loss
             state.add_tracked("curses", card, specific_name="Ruin", details=f"-{total_gold_lost:,} gp total lost")
             state.log_event("🏚️", f"All gold ({total_gold_lost:,} gp total: {lost_player_gold:,} gp on hand + {lost_transfer_amount:,} gp in escrow) disappeared!")
 
@@ -301,8 +301,19 @@ def commit_card_final(state: GameState, payload: dict = None):
                 state.log_event("🛡️", "Shield does not stack.")
 
         case "Ship":
-            if "Ship" not in state.buffs or state.buffs["Ship"].count < 13:
+            if "Ship" not in state.buffs:
                 state.add_tracked("buffs", card, details="+3 skills")
+                state.buffs["Ship"].count = 3
+                state.buffs["Ship"].details = ["+3 skills"]
+            else:
+                curr = state.buffs["Ship"].count
+                if curr < 13:
+                    new_val = min(13, curr + 3)
+                    state.buffs["Ship"].count = new_val
+                    state.buffs["Ship"].details = [f"+{new_val} skills"]
+                    state.log_event("⛵", f"Ship: Skills increased to +{new_val}.")
+                else:
+                    state.log_event("⛵", "Ship: Already at maximum 13 skills.")
 
         case "Skull":
             if random.random() < 0.05:
@@ -325,11 +336,9 @@ def commit_card_final(state: GameState, payload: dict = None):
             advance_time(state, 1)
 
         case "Sun":
-            # Loot stacks
-            state.add_tracked("loot", card, specific_name="Sun (Magic Item)")
-            # Buff does not stack
+            state.add_tracked("loot", card, specific_name="Sun (Magic Item)", details="A magic item!")
             if "Sun Temp HP" not in state.buffs:
-                state.add_tracked("buffs", card, specific_name="Sun Temp HP", details="+10 Temp HP Daily")
+                state.add_tracked("buffs", card, specific_name="Sun Temp HP", details="10 Temporary Hit Points daily at dawn until you die.")
             state.temp_hp = 10
 
         case "Talons": 
@@ -350,6 +359,8 @@ def commit_card_final(state: GameState, payload: dict = None):
                 else:
                     if data["c1"] not in state.buffs["Throne"].details:
                         state.buffs["Throne"].details.append(data["c1"])
+            else:
+                state.log_event("👑", "Throne: All skill expertises already gained.")
 
         case "Tomb": 
             if "Tomb" not in state.buffs:
@@ -379,11 +390,16 @@ def commit_card_final(state: GameState, payload: dict = None):
             if "Well" not in state.buffs:
                 state.add_tracked("buffs", card, details="+3 Cantrips")
                 state.buffs["Well"].count = 3
+                state.buffs["Well"].details = ["+3 Cantrips"]
             else:
                 curr = state.buffs["Well"].count
-                new_val = min(13, curr + 3)
-                state.buffs["Well"].count = new_val
-                state.buffs["Well"].details = [f"+{new_val} Cantrips"]
+                if curr < 50:
+                    new_val = min(50, curr + 3)
+                    state.buffs["Well"].count = new_val
+                    state.buffs["Well"].details = [f"+{new_val} Cantrips"]
+                    state.log_event("🪣", f"Well: Cantrips increased to +{new_val}.")
+                else:
+                    state.log_event("🪣", "Well: Already at maximum 50 cantrips.")
 
         case "Roll again": pass
 
@@ -408,7 +424,6 @@ def consume_charge(state: GameState, source: str, target: str):
         state.curses.pop("Wish Stress", None)
         state.wish_stressed = False
 
-        # Gain 1 additional cast of Wish
         if "Moon" in state.buffs:
             state.buffs["Moon"].count += 1
             state.buffs["Moon"].details = [f"{state.buffs['Moon'].count} wishes"]
@@ -417,7 +432,6 @@ def consume_charge(state: GameState, source: str, target: str):
             desc = moon_card.get("short_description") or moon_card.get("description", "")
             state.buffs["Moon"] = TrackedEntity(name="Moon", emoji="🌙", description=desc, count=1, details=["1 wishes"])
 
-        # Re-apply whatever caused the Wish Stress
         stress_record = None
         for i in range(len(state.wish_removal_history) - 1, -1, -1):
             if state.wish_removal_history[i].get("caused_stress"):
@@ -482,7 +496,6 @@ def consume_charge(state: GameState, source: str, target: str):
             else:
                 state.buffs["Moon"].details = [f"{state.buffs['Moon'].count} wishes"]
 
-        # Snapshot removal history in case Fates undoes stress later
         stress_triggered = False
         if target_wish_stress:
             if random.random() < 0.33:

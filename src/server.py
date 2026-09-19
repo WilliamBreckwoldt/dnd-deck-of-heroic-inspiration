@@ -44,13 +44,30 @@ def setup_secondary_and_choices(st: GameState):
         st.secondary_dice_types = []
         st.secondary_rolls = []
 
-    if c_name == "Balance": st.pending_choice_type = "balance"
-    elif c_name == "Elemental": st.pending_choice_type = "elemental"
-    elif c_name == "Puzzle": st.pending_choice_type = "puzzle"
-    elif c_name == "Throne": st.pending_choice_type = "throne"
-    elif c_name == "Star": st.pending_choice_type = "star"
-    elif c_name == "Tower": st.pending_choice_type = "tower"
-    else: st.pending_choice_type = None
+    if c_name == "Balance":
+        st.pending_choice_type = "balance"
+    elif c_name == "Elemental":
+        existing = st.buffs.get("Elemental").details if "Elemental" in st.buffs else []
+        all_elements = ["Acid", "Cold", "Fire", "Lightning", "Thunder"]
+        if any(e not in existing for e in all_elements):
+            st.pending_choice_type = "elemental"
+        else:
+            st.pending_choice_type = None
+    elif c_name == "Puzzle":
+        st.pending_choice_type = "puzzle"
+    elif c_name == "Throne":
+        existing = st.buffs.get("Throne").details if "Throne" in st.buffs else []
+        all_skills = ["History", "Insight", "Intimidation", "Persuasion"]
+        if any(sk not in existing for sk in all_skills):
+            st.pending_choice_type = "throne"
+        else:
+            st.pending_choice_type = None
+    elif c_name == "Star":
+        st.pending_choice_type = "star"
+    elif c_name == "Tower":
+        st.pending_choice_type = "tower"
+    else:
+        st.pending_choice_type = None
 
 @app.post("/api/action")
 def handle_action(payload: ActionPayload, x_session_id: str | None = Header(default=None)):
@@ -356,7 +373,6 @@ INDEX_HTML = """
                             <button v-if="s.modal_phase === 'tower_choices'" @click="api('choice_tower', {idx: idx})" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded font-bold hover:bg-blue-700">Keep Card {{idx+1}}</button>
                         </div>
                     </div>
-                    <!-- Tower click hint (Shows on first draw of the run) -->
                     <div v-if="s.modal_phase === 'tower_wait' && !hasShownCardHint" class="mt-4 text-sm font-bold text-blue-700 leading-snug bg-blue-50 px-5 py-2.5 rounded-xl border border-blue-200 shadow-sm animate-pulse">
                         Click the card to reveal immediately! 👆<br/>
                         <span class="text-xs text-blue-500 font-normal">(or click one of the dice to re-roll it)</span>
@@ -379,7 +395,6 @@ INDEX_HTML = """
                             <div class="font-bold mt-2 leading-tight">{{ (isAnimTens || isAnimUnits) ? animD100.name : (s.pending_card ? s.pending_card.name : '...') }}</div>
                         </div>
                     </div>
-                    <!-- Standard card click hint (Shows on first draw of the run) -->
                     <div v-if="s.modal_phase === 'd100_wait' && !hasShownCardHint" class="mt-4 text-sm font-bold text-blue-700 leading-snug bg-blue-50 px-5 py-2.5 rounded-xl border border-blue-200 shadow-sm animate-pulse">
                         Click the card to {{ (s.pending_card && s.pending_card.name === 'Roll again') ? 're-roll' : 'reveal' }} immediately! 👆<br/>
                         <span class="text-xs text-blue-500 font-normal">(or click one of the dice to re-roll it)</span>
@@ -416,15 +431,25 @@ INDEX_HTML = """
                             <select v-model="c2" class="border p-2 rounded"><option disabled value="">-2 Stat</option><option v-for="st in ['strength','dexterity','constitution','intelligence','wisdom','charisma','Skip']">{{st}}</option></select>
                         </div>
                         <!-- Elemental -->
-                        <select v-if="s.pending_choice_type === 'elemental'" v-model="c1" class="border p-2 rounded">
-                            <option disabled value="">Choose Immunity</option>
-                            <option v-for="e in availableElementalChoices" :value="e">{{e}}</option>
-                        </select>
+                        <div v-if="s.pending_choice_type === 'elemental'">
+                            <select v-if="availableElementalChoices.length > 0" v-model="c1" class="border p-2 rounded">
+                                <option disabled value="">Choose Immunity</option>
+                                <option v-for="e in availableElementalChoices" :value="e">{{e}}</option>
+                            </select>
+                            <span v-else class="text-sm font-semibold text-gray-500 italic p-2">
+                                All damage immunities already acquired!
+                            </span>
+                        </div>
                         <!-- Throne -->
-                        <select v-if="s.pending_choice_type === 'throne'" v-model="c1" class="border p-2 rounded">
-                            <option disabled value="">Choose Expertise</option>
-                            <option v-for="sk in availableThroneChoices" :value="sk">{{sk}}</option>
-                        </select>
+                        <div v-if="s.pending_choice_type === 'throne'">
+                            <select v-if="availableThroneChoices.length > 0" v-model="c1" class="border p-2 rounded">
+                                <option disabled value="">Choose Expertise</option>
+                                <option v-for="sk in availableThroneChoices" :value="sk">{{sk}}</option>
+                            </select>
+                            <span v-else class="text-sm font-semibold text-gray-500 italic p-2">
+                                All Throne expertises already acquired!
+                            </span>
+                        </div>
                         <!-- Puzzle -->
                         <select v-if="s.pending_choice_type === 'puzzle'" v-model="c1" class="border p-2 rounded">
                             <option disabled value="">Stat to Drain</option>
@@ -521,6 +546,8 @@ INDEX_HTML = """
                     let p = this.s.pending_choice_type;
                     if(!p || p === 'tower') return true;
                     if(p === 'balance') return (this.c1 && this.c2 && this.c1 !== this.c2) || this.c1 === 'Skip';
+                    if(p === 'elemental') return this.availableElementalChoices.length === 0 || !!this.c1;
+                    if(p === 'throne') return this.availableThroneChoices.length === 0 || !!this.c1;
                     return !!this.c1;
                 }
             },
